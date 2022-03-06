@@ -10,7 +10,7 @@ with open(Path(__file__).parent / "requirements.txt", "r", encoding="utf-8") as 
 
 setuptools.setup(
     name="timing-wrappers",
-    version="v0.0.2",
+    version="v0.0.3",
     author="Olle Lindgren",
     author_email="lindgrenolle@live.se",
     description="My version of a timing library",

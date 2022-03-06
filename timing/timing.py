@@ -107,9 +107,11 @@ class TimeKeeper:
         def pseudo_track(f: Callable):
             def wrapper(*args, **kwargs):
                 t0 = time.time()
-                result = f(*args, **kwargs)
-                dt = time.time() - t0
-                cls.tracks[key if key is not None else f.__name__].append(dt)
+                try:
+                    result = f(*args, **kwargs)
+                finally:
+                    dt = time.time() - t0
+                    cls.tracks[key if key is not None else f.__name__].append(dt)
                 return result
             return wrapper
         return pseudo_track
